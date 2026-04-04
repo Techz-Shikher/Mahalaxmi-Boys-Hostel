@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">HostelManagementApp</string>
+    <string name="meal_prompt">Select a meal</string>
+    <string name="university_prompt">Select your university</string>
+    <string name="destination_prompt">Select destination</string>
+
+    <string-array name="meals">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Snacks</item>
+    </string-array>
+
+    <string-array name="destinations">
+        <item>Galgotias University</item>
+        <item>Local</item>
+    </string-array>
+
+    <!-- Galgotias Going Times -->
+    <string-array name="galgotias_going_times">
+        <item>8:00 AM</item>
+        <item>9:00 AM</item>
+        <item>11:30 AM</item>
+    </string-array>
+
+    <!-- Galgotias Departure Times -->
+    <string-array name="galgotias_departure_times">
+        <item>1:30 PM</item>
+        <item>3:50 PM</item>
+        <item>5:20 PM</item>
+    </string-array>
+
+    <!-- Local Going Times -->
+    <string-array name="local_going_times">
+        <item>7:00 AM</item>
+        <item>9:00 AM</item>
+    </string-array>
+
+    <!-- Local Departure Times -->
+    <string-array name="local_departure_times">
+        <item>5:00 PM</item>
+        <item>6:30 PM</item>
+    </string-array>
+</resources>

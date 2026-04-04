@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f7fa">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/gradient_green"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="🚌 Request Transport"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- University/Destination Selection -->
+        <TextView
+            android:text="Select University/Destination"
+            android:textSize="16sp"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/universitySpinner"
+            android:prompt="@string/destination_prompt"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/input_background"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <!-- Going Time Selection -->
+        <TextView
+            android:id="@+id/goingTimeLabel"
+            android:text="Select Going Time"
+            android:textSize="16sp"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/goingTimeSpinner"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/input_background"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:visibility="gone" />
+
+        <!-- Departure Time Selection -->
+        <TextView
+            android:id="@+id/departureTimeLabel"
+            android:text="Select Departure Time"
+            android:textSize="16sp"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/departureTimeSpinner"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/input_background"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/requestBtn"
+            android:text="Request Transport"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:background="@drawable/gradient_green"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

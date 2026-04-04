@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f7fa">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header with Gradient -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/gradient_header"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:text="Hostel Management"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/logoutBtn"
+                        android:text="Logout"
+                        android:textColor="#5b6ef5"
+                        android:textSize="12sp"
+                        android:background="@drawable/rounded_button"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:text="Welcome User"
+                    android:textSize="16sp"
+                    android:textColor="#fff"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <!-- Content Area -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Activity Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="2dp"
+                    android:radius="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/gradient_blue"
+                        android:gravity="center"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:text="On Duty Status"
+                            android:textSize="12sp"
+                            android:textColor="#fff"
+                            android:alpha="0.7"
+                            android:layout_marginBottom="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/roomStatus"
+                            android:text="Loading..."
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#fff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Category Cards -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <!-- Students Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/gradient_light_blue"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:text="👥"
+                                android:textSize="24sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:text="700+ Students"
+                                android:textSize="12sp"
+                                android:textColor="#5b6ef5"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Bills Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/gradient_light_pink"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:text="💳"
+                                android:textSize="24sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:text="Hostel Bills"
+                                android:textSize="12sp"
+                                android:textColor="#ec4899"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Feature Grid -->
+                <GridLayout
+                    android:columnCount="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:rowCount="3">
+
+                    <!-- Complaint Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_purple"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="📝"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <Button
+                                android:id="@+id/addComplaintBtn"
+                                android:text="File Complaint"
+                                android:textSize="12sp"
+                                android:textColor="#fff"
+                                android:background="@drawable/rounded_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Updates Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_teal"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="📢"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <Button
+                                android:id="@+id/viewAnnouncementsBtn"
+                                android:text="View Updates"
+                                android:textSize="12sp"
+                                android:textColor="#fff"
+                                android:background="@drawable/rounded_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Food Booking Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/foodBookingCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_orange"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="🍽️"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Food Booking"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Transport Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/transportCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_green"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="🚌"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Transport"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Food History Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/foodHistoryCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_teal"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="📜"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <Button
+                                android:id="@+id/viewFoodHistoryBtn"
+                                android:text="Food History"
+                                android:textSize="12sp"
+                                android:textColor="#fff"
+                                android:background="@drawable/rounded_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Menu Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_light_pink"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="📋"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <Button
+                                android:id="@+id/viewMenuBtn"
+                                android:text="Weekly Menu"
+                                android:textSize="12sp"
+                                android:textColor="#fff"
+                                android:background="@drawable/rounded_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Institute Booking Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/instituteBookingCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_teal"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="🏫"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Institute Booking"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </GridLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
