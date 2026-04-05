@@ -9,18 +9,27 @@ export default function Home() {
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (!loading) {
-      if (!user) {
-        router.push('/login');
-      } else if (user.role === 'Admin') {
-        router.push('/admin/dashboard');
-      } else {
-        router.push('/student/dashboard');
+    const timer = setTimeout(() => {
+      if (!loading) {
+        if (!user) {
+          router.push('/login');
+        } else if (user.role === 'Admin') {
+          router.push('/admin/dashboard');
+        } else {
+          router.push('/student/dashboard');
+        }
       }
-    }
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, [user, loading, router]);
 
-  return null;
+  return (
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>Mahalaxmi Boys Hostel</h1>
+      <p>Loading...</p>
+    </div>
+  );
 }
 
   if (loading) return <LoadingSpinner />;
