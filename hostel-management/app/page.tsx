@@ -9,7 +9,3 @@ export default function Home() {
     </div>
   );
 }
-
-  if (loading) return <LoadingSpinner />;
-  return null;
-}
