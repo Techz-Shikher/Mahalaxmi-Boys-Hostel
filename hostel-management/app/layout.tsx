@@ -1,12 +1,10 @@
-// app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
-import Header from '@/components/shared/Header';
 
 export const metadata: Metadata = {
-  title: 'Hostel Management System',
-  description: 'Full-stack hostel management system',
+  title: 'Mahalaxmi Boys Hostel',
+  description: 'Hostel management system',
 };
 
 export default function RootLayout({
@@ -16,9 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50">
+      <body>
         <AuthProvider>
-          <Header />
           {children}
         </AuthProvider>
       </body>
