@@ -1,11 +1,33 @@
+'use client';
+
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import LoadingSpinner from '@/components/shared/LoadingSpinner';
+
 export default function Home() {
-  return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Mahalaxmi Boys Hostel ✅</h1>
-      <p>App is working!</p>
-      <a href="/login" style={{ color: 'blue', textDecoration: 'underline' }}>
-        Go to Login
-      </a>
-    </div>
-  );
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading) {
+      if (!user) {
+        router.push('/login');
+      } else if (!user.role) {
+        console.error('User has no role assigned');
+        router.push('/login');
+      } else if (user.role === 'Admin') {
+        router.push('/admin/dashboard');
+      } else if (user.role === 'Student') {
+        router.push('/student/dashboard');
+      } else {
+        console.error('Unknown user role:', user.role);
+        router.push('/login');
+      }
+    }
+  }, [user, loading, router]);
+
+  if (loading) return <LoadingSpinner />;
+
+  return null;
 }
