@@ -7,7 +7,6 @@ import { db } from '@/lib/firebase';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
 import ErrorMessage from '@/components/shared/ErrorMessage';
 import SuccessMessage from '@/components/shared/SuccessMessage';
-import AdminSidebar from '@/components/shared/AdminSidebar';
 
 interface MenuData {
   [day: string]: {
