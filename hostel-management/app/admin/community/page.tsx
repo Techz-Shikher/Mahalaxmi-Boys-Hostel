@@ -47,12 +47,15 @@ export default function CommunityAdminPage() {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-slate-950">
-      {/* Animated blob background - pink/purple theme */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-pink-500/20 to-transparent rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-t from-purple-500/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-b from-fuchsia-500/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
+    <div className="flex">
+      <AdminSidebar />
+      <main className="flex-1">
+        <div className="min-h-screen relative overflow-hidden bg-slate-950">
+          {/* Animated blob background - pink/purple theme */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-pink-500/20 to-transparent rounded-full blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-t from-purple-500/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-b from-fuchsia-500/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Content */}
