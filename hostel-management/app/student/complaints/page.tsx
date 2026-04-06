@@ -54,7 +54,6 @@ export default function ComplaintsPage() {
     setSubmitting(true);
 
     try {
-      // Create complaint
       await createComplaint({
         userId: user?.uid,
         title: formData.title,
@@ -75,164 +74,126 @@ export default function ComplaintsPage() {
 
   if (loading) return <LoadingSpinner />;
 
-  const pendingComplaints = complaints.filter(c => c.status === 'Pending');
-  const resolvedComplaints = complaints.filter(c => c.status !== 'Pending');
+  const pendingComplaints = complaints.filter((c) => c.status === 'Pending');
+  const resolvedComplaints = complaints.filter((c) => c.status !== 'Pending');
 
   return (
     <div className="flex">
       <StudentSidebar />
-      <main className="flex-1">
-    <div className="min-h-screen relative overflow-hidden bg-slate-950">
-      {/* Animated blob background - red/slate theme for complaints */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-red-500/20 to-transparent rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-t from-slate-600/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-b from-orange-500/20 to-transparent rounded-full blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
-      </div>
+      <main className="flex-1 min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        {/* Background blobs */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10 p-8">
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="mb-8 animate-fadeInUp">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent mb-2">
-              ⚠️ File a Complaint
-            </h1>
-            <p className="text-slate-400">Report issues and track their resolution status</p>
-          </div>
-
-          {/* Messages */}
-          {error && <ErrorMessage message={error} />}
-          {success && <SuccessMessage message={success} />}
-
-          {/* Create Form Section */}
-          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 animate-slideInLeft" style={{ animationDelay: '0.1s' }}>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <span>🆕</span> Report New Issue
-              </h2>
-              <button
-                onClick={() => setShowForm(!showForm)}
-                className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-400 hover:to-orange-400 text-white px-6 py-2 rounded-xl transition-all duration-300"
-              >
-                {showForm ? '✕ Cancel' : '📝 New Complaint'}
-              </button>
+        {/* Content */}
+        <div className="relative z-10 p-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold text-white mb-2">⚠️ File a Complaint</h1>
+              <p className="text-slate-400">Report issues and track their resolution status</p>
             </div>
 
-            {showForm && (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">Title</label>
-                  <input
-                    type="text"
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-400/20 transition-all duration-300"
-                    placeholder="Brief complaint title"
-                    required
-                  />
-                </div>
+            {/* Messages */}
+            {error && <ErrorMessage message={error} />}
+            {success && <SuccessMessage message={success} />}
 
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">Description</label>
-                  <textarea
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-400/20 transition-all duration-300 resize-none"
-                    placeholder="Provide detailed description..."
-                    rows={5}
-                    required
-                  />
-                </div>
-
+            {/* Form Section */}
+            <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-white">📝 New Complaint</h2>
                 <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-400 hover:to-orange-400 disabled:from-slate-600 disabled:to-slate-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-red-500/20"
+                  onClick={() => setShowForm(!showForm)}
+                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition"
                 >
-                  {submitting ? '⏳ Submitting...' : '🚀 Submit Complaint'}
+                  {showForm ? 'Cancel' : 'Add'}
                 </button>
-              </form>
-            )}
-          </div>
+              </div>
 
-          {/* Complaints List */}
-          <div className="space-y-8 animate-slideInLeft" style={{ animationDelay: '0.2s' }}>
-            {/* Pending Complaints */}
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <span>⏳</span> Pending ({pendingComplaints.length})
-              </h2>
-              {pendingComplaints.length === 0 ? (
-                <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 text-center">
-                  <p className="text-slate-400">No pending complaints</p>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {pendingComplaints.map((complaint, idx) => (
-                    <div
-                      key={complaint.id}
-                      className="backdrop-blur-xl bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-6 hover:bg-yellow-500/20 transition-all duration-300"
-                      style={{
-                        animation: `fadeInUp 0.5s ease-out ${0.2 + (idx * 0.05)}s both`
-                      }}
-                    >
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-white">{complaint.title}</h3>
-                          <p className="text-xs text-slate-400 mt-1">📅 {complaint.createdAt?.toDate?.()?.toLocaleDateString?.() || 'N/A'}</p>
-                        </div>
-                        <span className="bg-yellow-500/30 text-yellow-300 px-3 py-1 rounded-lg text-xs font-semibold border border-yellow-500/50">
-                          Pending
-                        </span>
-                      </div>
-                      <p className="text-slate-200">{complaint.description}</p>
-                    </div>
-                  ))}
-                </div>
+              {showForm && (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-white mb-2">Title</label>
+                    <input
+                      type="text"
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      className="w-full px-4 py-2 bg-slate-800 border border-white/20 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-red-400"
+                      placeholder="Complaint title"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-white mb-2">Description</label>
+                    <textarea
+                      value={formData.description}
+                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      className="w-full px-4 py-2 bg-slate-800 border border-white/20 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-red-400 resize-none"
+                      placeholder="Describe the issue..."
+                      rows={5}
+                      required
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full bg-red-600 hover:bg-red-700 disabled:bg-slate-600 text-white font-semibold py-2 rounded-lg transition"
+                  >
+                    {submitting ? 'Submitting...' : 'Submit'}
+                  </button>
+                </form>
               )}
             </div>
 
-            {/* Resolved Complaints */}
-            {resolvedComplaints.length > 0 && (
+            {/* Complaints List */}
+            <div className="space-y-6">
+              {/* Pending */}
               <div>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                  <span>✅</span> Resolved ({resolvedComplaints.length})
-                </h2>
-                <div className="space-y-4">
-                  {resolvedComplaints.map((complaint, idx) => (
-                    <div
-                      key={complaint.id}
-                      className="backdrop-blur-xl bg-green-500/10 border border-green-500/30 rounded-2xl p-6 hover:bg-green-500/20 transition-all duration-300"
-                      style={{
-                        animation: `fadeInUp 0.5s ease-out ${0.3 + (idx * 0.05)}s both`
-                      }}
-                    >
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-white">{complaint.title}</h3>
-                          <p className="text-xs text-slate-400 mt-1">📅 {complaint.createdAt?.toDate?.()?.toLocaleDateString?.() || 'N/A'}</p>
-                        </div>
-                        <span className="bg-green-500/30 text-green-300 px-3 py-1 rounded-lg text-xs font-semibold border border-green-500/50">
-                          Resolved
-                        </span>
+                <h3 className="text-xl font-bold text-white mb-4">⏳ Pending ({pendingComplaints.length})</h3>
+                <div className="space-y-3">
+                  {pendingComplaints.length === 0 ? (
+                    <p className="text-slate-400">No pending complaints</p>
+                  ) : (
+                    pendingComplaints.map((complaint) => (
+                      <div key={complaint.id} className="bg-yellow-500/20 border border-yellow-500/30 rounded-lg p-4">
+                        <h4 className="font-bold text-white">{complaint.title}</h4>
+                        <p className="text-slate-300 text-sm mt-2">{complaint.description}</p>
+                        <span className="inline-block bg-yellow-600 text-yellow-100 text-xs px-2 py-1 rounded mt-2">Pending</span>
                       </div>
-                      <p className="text-slate-200">{complaint.description}</p>
-                    </div>
-                  ))}
+                    ))
+                  )}
                 </div>
               </div>
-            )}
 
-            {complaints.length === 0 && (
-              <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-12 text-center">
-                <p className="text-slate-400 text-lg">📭 No complaints yet</p>
-                <p className="text-slate-500 text-sm mt-2">File your first complaint using the form above</p>
-              </div>
-            )}
+              {/* Resolved */}
+              {resolvedComplaints.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4">✅ Resolved ({resolvedComplaints.length})</h3>
+                  <div className="space-y-3">
+                    {resolvedComplaints.map((complaint) => (
+                      <div key={complaint.id} className="bg-green-500/20 border border-green-500/30 rounded-lg p-4">
+                        <h4 className="font-bold text-white">{complaint.title}</h4>
+                        <p className="text-slate-300 text-sm mt-2">{complaint.description}</p>
+                        <span className="inline-block bg-green-600 text-green-100 text-xs px-2 py-1 rounded mt-2">Resolved</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {complaints.length === 0 && (
+                <div className="text-center py-8 bg-white/10 border border-white/20 rounded-lg">
+                  <p className="text-slate-400">📭 No complaints yet</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
       </main>
     </div>
+  );
+}
