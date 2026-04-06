@@ -5,7 +5,9 @@ import { useEffect, useState } from 'react';
 import { getComplaints, updateComplaint, type Complaint } from '@/lib/firestore';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
 import ErrorMessage from '@/components/shared/ErrorMessage';
-import SuccessMessage from '@/components/shared/SuccessMessage';import AdminSidebar from '@/components/shared/AdminSidebar';
+import SuccessMessage from '@/components/shared/SuccessMessage';
+import AdminSidebar from '@/components/shared/AdminSidebar';
+
 export default function ComplaintsPage() {
   const [complaints, setComplaints] = useState<Complaint[]>([]);
   const [loading, setLoading] = useState(true);
