@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { collection, query, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
-import AdminSidebar from '@/components/shared/AdminSidebar';
 import ErrorMessage from '@/components/shared/ErrorMessage';
 
 interface InstituteBooking {
