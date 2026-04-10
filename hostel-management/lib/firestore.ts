@@ -232,7 +232,7 @@ export async function getComplaints(userId?: string): Promise<Complaint[]> {
   try {
     let q;
     if (userId) {
-      q = query(collection(db, 'complaints'), where('userId', '==', userId));
+      q = query(collection(db, 'complaints'), where('studentId', '==', userId));
     } else {
       q = query(collection(db, 'complaints'));
     }

@@ -100,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
         // Institute Booking card
         instituteBookingCard.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, InstituteBookingActivity.class));
+        });
 
         // Community card
-        communityCard.setOnClickListener(v -> {
+        communityCard.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, CommunityActivity.class));
-        });
         });
     }
 

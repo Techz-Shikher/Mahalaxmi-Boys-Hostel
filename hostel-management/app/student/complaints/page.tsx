@@ -29,13 +29,17 @@ export default function ComplaintsPage() {
   const fetchComplaints = async () => {
     try {
       setLoading(true);
+      setError('');
       if (user?.uid) {
         const data = await getComplaints(user.uid);
-        setComplaints(data || []);
+        setComplaints(Array.isArray(data) ? data : []);
+      } else {
+        setError('User not authenticated');
       }
-    } catch (err) {
-      setError('Failed to fetch complaints');
-      console.error(err);
+    } catch (err: any) {
+      console.error('Error fetching complaints:', err);
+      setError(err?.message || 'Failed to fetch complaints. Please check Firestore permissions.');
+      setComplaints([]);
     } finally {
       setLoading(false);
     }
@@ -55,7 +59,7 @@ export default function ComplaintsPage() {
 
     try {
       await createComplaint({
-        userId: user?.uid,
+        studentId: user?.uid,
         title: formData.title,
         description: formData.description,
       });

@@ -31,7 +31,9 @@ export default function InstituteBookingsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedUniversity, setSelectedUniversity] = useState<string>('all');
+  const [selectedDate, setSelectedDate] = useState<string>('all');
   const [universities, setUniversities] = useState<string[]>([]);
+  const [dates, setDates] = useState<string[]>([]);
 
   useEffect(() => {
     fetchInstituteBookings();
@@ -39,7 +41,7 @@ export default function InstituteBookingsPage() {
 
   useEffect(() => {
     groupBookingsByUniversity();
-  }, [allBookings, selectedUniversity]);
+  }, [allBookings, selectedUniversity, selectedDate]);
 
   const fetchInstituteBookings = async () => {
     try {
@@ -49,25 +51,29 @@ export default function InstituteBookingsPage() {
 
       const bookings: InstituteBooking[] = [];
       const uniqueUniversities = new Set<string>();
+      const uniqueDates = new Set<string>();
 
       querySnapshot.forEach((doc) => {
         const data = doc.data();
+        const formattedDate = formatDate(data.date);
         bookings.push({
           id: doc.id,
           studentName: data.studentName || 'Unknown',
           email: data.email || '',
           university: data.university || 'Not Specified',
           mealType: data.mealType || 'Unknown',
-          date: formatDate(data.date),
+          date: formattedDate,
           status: data.status || 'pending',
           bookedAt: formatDateTime(data.bookedAt),
           userId: data.userId || '',
         });
         uniqueUniversities.add(data.university || 'Not Specified');
+        uniqueDates.add(formattedDate);
       });
 
       setAllBookings(bookings);
       setUniversities(Array.from(uniqueUniversities).sort());
+      setDates(Array.from(uniqueDates).sort().reverse());
     } catch (err) {
       setError('Failed to fetch institute bookings');
       console.error(err);
@@ -97,7 +103,11 @@ export default function InstituteBookingsPage() {
     let bookingsToGroup = allBookings;
 
     if (selectedUniversity !== 'all') {
-      bookingsToGroup = allBookings.filter((b) => b.university === selectedUniversity);
+      bookingsToGroup = bookingsToGroup.filter((b) => b.university === selectedUniversity);
+    }
+
+    if (selectedDate !== 'all') {
+      bookingsToGroup = bookingsToGroup.filter((b) => b.date === selectedDate);
     }
 
     // Group by university
@@ -221,22 +231,46 @@ export default function InstituteBookingsPage() {
 
           {/* Filter */}
           <div className="mb-8 animate-slideInLeft" style={{ animationDelay: '0.2s' }}>
-            <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6">
-              <label className="text-slate-300 text-sm font-medium mb-3 block">
-                Filter by University:
-              </label>
-              <select
-                value={selectedUniversity}
-                onChange={(e) => setSelectedUniversity(e.target.value)}
-                className="w-full md:w-64 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-slate-100 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
-              >
-                <option value="all" className="bg-slate-900">All Universities</option>
-                {universities.map((uni) => (
-                  <option key={uni} value={uni} className="bg-slate-900">
-                    {uni}
-                  </option>
-                ))}
-              </select>
+            <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* University Filter */}
+                <div>
+                  <label className="text-slate-300 text-sm font-medium mb-3 block">
+                    Filter by University:
+                  </label>
+                  <select
+                    value={selectedUniversity}
+                    onChange={(e) => setSelectedUniversity(e.target.value)}
+                    className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-slate-100 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                  >
+                    <option value="all" className="bg-slate-900">All Universities</option>
+                    {universities.map((uni) => (
+                      <option key={uni} value={uni} className="bg-slate-900">
+                        {uni}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Date Filter */}
+                <div>
+                  <label className="text-slate-300 text-sm font-medium mb-3 block">
+                    Filter by Date:
+                  </label>
+                  <select
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-slate-100 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+                  >
+                    <option value="all" className="bg-slate-900">All Dates</option>
+                    {dates.map((date) => (
+                      <option key={date} value={date} className="bg-slate-900">
+                        {date}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
 
