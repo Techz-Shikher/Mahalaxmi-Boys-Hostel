@@ -36,7 +36,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
 
     private void loadAnnouncements() {
         db.collection("announcements")
-                .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
+                .orderBy("createdAt", com.google.firebase.firestore.Query.Direction.DESCENDING)
                 .limit(50)
                 .get()
                 .addOnCompleteListener(task -> {
@@ -44,9 +44,9 @@ public class AnnouncementsActivity extends AppCompatActivity {
                         announcements.clear();
                         for (QueryDocumentSnapshot doc : task.getResult()) {
                             String title = doc.getString("title");
-                            String content = doc.getString("content");
-                            if (title != null && content != null) {
-                                announcements.add(new Announcement(title, content));
+                            String message = doc.getString("message");
+                            if (title != null && message != null) {
+                                announcements.add(new Announcement(title, message));
                             }
                         }
                         adapter.notifyDataSetChanged();
