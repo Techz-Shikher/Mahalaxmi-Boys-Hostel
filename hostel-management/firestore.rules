@@ -49,11 +49,14 @@ service cloud.firestore {
       allow create: if isAdmin();
     }
 
-    // Complaints - users can create, read own/assigned, staff/admin can write
+    // Complaints - users can create, read own, staff/admin can read all and write
     match /complaints/{complaintId} {
       allow create: if request.auth != null;
       allow read: if request.auth != null && 
-                     (resource.data.studentId == request.auth.uid || isAdmin() || isStaff());
+                     (resource.data.studentId == request.auth.uid || 
+                      resource.data.userId == request.auth.uid || 
+                      isAdmin() || 
+                      isStaff());
       allow update, delete: if isAdmin() || isStaff();
     }
 

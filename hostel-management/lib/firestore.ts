@@ -232,15 +232,30 @@ export async function getComplaints(userId?: string): Promise<Complaint[]> {
   try {
     let q;
     if (userId) {
+      // For user view - get their complaints (handles both studentId and userId fields)
       q = query(collection(db, 'complaints'), where('studentId', '==', userId));
     } else {
+      // For admin view - get all complaints
       q = query(collection(db, 'complaints'));
     }
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => ({
+    let complaints = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     } as Complaint));
+
+    // If userId is provided and no results, try userId field for backward compatibility
+    if (userId && complaints.length === 0) {
+      console.warn('No complaints with studentId, trying userId field...');
+      const q2 = query(collection(db, 'complaints'), where('userId', '==', userId));
+      const querySnapshot2 = await getDocs(q2);
+      complaints = querySnapshot2.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      } as Complaint));
+    }
+
+    return complaints;
   } catch (error) {
     console.error('Error getting complaints:', error);
     throw error;
