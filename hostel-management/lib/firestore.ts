@@ -345,6 +345,37 @@ export async function deleteMeal(mealId: string) {
   }
 }
 
+// Food Booking related functions
+export async function getFoodBookings(): Promise<any[]> {
+  try {
+    const q = query(collection(db, 'foodBookings'));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      type: 'foodBooking',
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error('Error getting food bookings:', error);
+    throw error;
+  }
+}
+
+export async function getInstituteBookings(): Promise<any[]> {
+  try {
+    const q = query(collection(db, 'instituteBookings'));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      type: 'instituteBooking',
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error('Error getting institute bookings:', error);
+    throw error;
+  }
+}
+
 // Transport Booking related functions
 export async function createTransportBooking(bookingData: any) {
   try {
