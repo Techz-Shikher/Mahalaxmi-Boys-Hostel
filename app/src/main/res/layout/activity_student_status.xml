@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a2e"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Location Status"
+        android:textSize="28sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🏠 Currently: In Hostel"
+        android:textSize="20sp"
+        android:textColor="#4dd0e1"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:background="@drawable/button_teal"
+        android:elevation="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select your current location so the admin can see real-time attendance"
+        android:textSize="14sp"
+        android:textColor="#b0bec5"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/inHostelBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="🏠\nIn Hostel"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@drawable/button_green"
+        android:layout_marginBottom="20dp"
+        android:elevation="8dp" />
+
+    <Button
+        android:id="@+id/atHomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="🏫\nAt Home"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@drawable/button_blue"
+        android:elevation="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💡 The admin will see your status in real-time on the dashboard. Update it whenever you leave or return to the hostel."
+        android:textSize="12sp"
+        android:textColor="#90a4ae"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:background="#263238"
+        android:gravity="center"
+        android:elevation="2dp" />
+
+</LinearLayout>

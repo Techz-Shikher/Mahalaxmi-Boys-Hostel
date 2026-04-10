@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private TextView userEmail, roomStatus;
     private Button logoutBtn, addComplaintBtn, viewAnnouncementsBtn, viewFoodHistoryBtn, viewMenuBtn;
-    private CardView foodBookingCard, transportCard, foodHistoryCard, menuCard, instituteBookingCard, communityCard;
+    private CardView foodBookingCard, transportCard, foodHistoryCard, menuCard, instituteBookingCard, communityCard, statusCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         viewMenuBtn = findViewById(R.id.viewMenuBtn);
         instituteBookingCard = findViewById(R.id.instituteBookingCard);
         communityCard = findViewById(R.id.communityCard);
+        statusCard = findViewById(R.id.statusCard);
 
         // Set user email
         if (mAuth.getCurrentUser() != null) {
@@ -105,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         // Community card
         communityCard.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, CommunityActivity.class));
+        });
+
+        // Student Status card
+        statusCard.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, StudentStatusActivity.class));
         });
     }
 

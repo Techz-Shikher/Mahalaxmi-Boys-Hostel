@@ -48,6 +48,9 @@
         <activity
             android:name=".CommunityActivity"
             android:exported="true" />
+        <activity
+            android:name=".StudentStatusActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
