@@ -45,6 +45,9 @@
         <activity
             android:name=".InstituteBookingActivity"
             android:exported="true" />
+        <activity
+            android:name=".CommunityActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

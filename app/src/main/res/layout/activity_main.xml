@@ -195,7 +195,7 @@
                     android:columnCount="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:rowCount="3">
+                    android:rowCount="4">
 
                     <!-- Complaint Card -->
                     <androidx.cardview.widget.CardView
@@ -478,6 +478,48 @@
 
                             <TextView
                                 android:text="Institute Booking"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Community Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/communityCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_blue"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="💬"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Community"
                                 android:textSize="14sp"
                                 android:textColor="#fff"
                                 android:textStyle="bold"
