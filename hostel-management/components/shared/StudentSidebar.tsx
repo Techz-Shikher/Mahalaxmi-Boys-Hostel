@@ -14,6 +14,9 @@ export default function StudentSidebar() {
     { icon: '🍴', label: 'View Meals', href: '/student/meals' },
     { icon: '🏫', label: 'Institute Lunch', href: '/student/meals/institute' },
     { icon: '🚌', label: 'Transport', href: '/student/transport' },
+    { icon: '🤝', label: 'Donate to NGO', href: '/student/ngo/donate' },
+    { icon: '🏥', label: 'My Health', href: '/student/health' },
+    { icon: '⚡', label: 'Energy Usage', href: '/student/energy' },
     { icon: '💬', label: 'Community Feed', href: '/student/community' },
   ];
 
@@ -39,20 +42,20 @@ export default function StudentSidebar() {
 
       {/* Sidebar */}
       <nav
-        className={`fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-slate-900 to-slate-950 border-r border-white/20 backdrop-blur-xl transform transition-transform duration-300 ease-out z-40 ${
+        className={`fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-slate-900 to-slate-950 border-r border-white/20 backdrop-blur-xl transform transition-transform duration-300 ease-out z-40 flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Header */}
-        <div className="p-6 border-b border-white/20">
+        <div className="flex-shrink-0 p-6 border-b border-white/20">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Student Menu
           </h1>
           <p className="text-slate-400 text-sm mt-2">Quick Navigation</p>
         </div>
 
-        {/* Menu Items */}
-        <div className="p-4 space-y-2">
+        {/* Scrollable Menu Items */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent hover:scrollbar-thumb-white/40">
           {menuItems.map((item, index) => (
             <Link
               key={item.href}
@@ -70,7 +73,7 @@ export default function StudentSidebar() {
         </div>
 
         {/* Footer Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/20 bg-gradient-to-t from-black/50">
+        <div className="flex-shrink-0 p-4 border-t border-white/20 bg-gradient-to-t from-black/50">
           <p className="text-xs text-slate-500 text-center">© 2026 Mahalaxmi Hostel</p>
         </div>
       </nav>

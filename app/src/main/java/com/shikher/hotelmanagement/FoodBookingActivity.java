@@ -104,9 +104,6 @@ public class FoodBookingActivity extends AppCompatActivity {
 
     private void updateMenuSpinner() {
         int dayOfWeek = nextDayCalendar.get(Calendar.DAY_OF_WEEK) - 1;
-        if (dayOfWeek == 0) dayOfWeek = 6; // Sunday is 0, convert to index 6
-        else dayOfWeek--; // Adjust for 0-indexing
-
         String nextDay = days[dayOfWeek];
         
         // Set date label

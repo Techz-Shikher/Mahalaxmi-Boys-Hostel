@@ -573,6 +573,174 @@
 
                     </androidx.cardview.widget.CardView>
 
+                    <!-- NGO Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/ngoCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="4"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_green"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="🤝"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Donate NGO"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Waste Tracking Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/wasteTrackingCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="4"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_light_green"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="♻️"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Track Waste"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Health Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/healthCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="5"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_light_pink"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="🏥"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Health"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Energy Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/energyCard"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_row="5"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        android:elevation="2dp"
+                        android:radius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_light_green"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:text="⚡"
+                                android:textSize="36sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:text="Energy"
+                                android:textSize="14sp"
+                                android:textColor="#fff"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
                 </GridLayout>
 
             </LinearLayout>

@@ -103,10 +103,8 @@ service cloud.firestore {
 
     match /transportBookings/{bookingId} {
       allow create: if request.auth != null;
-      allow read: if request.auth != null && 
-                     (resource.data.userId == request.auth.uid || isAdmin() || isStaff());
-      allow update: if request.auth != null && 
-                       (resource.data.userId == request.auth.uid || isAdmin() || isStaff());
+      allow read: if isAdmin() || isStaff() || (request.auth != null && resource.data.userId == request.auth.uid);
+      allow update: if isAdmin() || isStaff() || (request.auth != null && resource.data.userId == request.auth.uid);
       allow delete: if isAdmin();
     }
 
@@ -150,6 +148,39 @@ service cloud.firestore {
     match /mealFeedback/{feedbackId} {
       allow create: if isStudent();
       allow read: if isAdmin() || isStaff();
+    }
+
+    // NGOs - admin can manage, all authenticated users can read
+    match /ngos/{ngoId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Waste Tracker - staff/admin can write, admin can read all
+    match /wasteTracker/{wasteLogId} {
+      allow create: if request.auth != null && (isAdmin() || isStaff());
+      allow read: if isAdmin() || isStaff();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Health Incidents - students can create own, admin/staff can read all
+    match /healthIncidents/{incidentId} {
+      allow create: if request.auth != null;
+      allow read: if isAdmin() || isStaff() || (request.auth != null && resource.data.studentId == request.auth.uid);
+      allow update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+
+    // Energy Logs - staff/admin can write, all can read
+    match /energyLogs/{logId} {
+      allow create: if request.auth != null && (isAdmin() || isStaff());
+      allow read: if request.auth != null;
+      allow update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
     }
   }
 }

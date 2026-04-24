@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private TextView userEmail, roomStatus;
     private Button logoutBtn, addComplaintBtn, viewAnnouncementsBtn, viewFoodHistoryBtn, viewMenuBtn;
-    private CardView foodBookingCard, transportCard, foodHistoryCard, menuCard, instituteBookingCard, communityCard, statusCard;
+    private CardView foodBookingCard, transportCard, foodHistoryCard, menuCard, instituteBookingCard, communityCard, statusCard, ngoCard, wasteTrackingCard, healthCard, energyCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         instituteBookingCard = findViewById(R.id.instituteBookingCard);
         communityCard = findViewById(R.id.communityCard);
         statusCard = findViewById(R.id.statusCard);
+        ngoCard = findViewById(R.id.ngoCard);
+        wasteTrackingCard = findViewById(R.id.wasteTrackingCard);
+        healthCard = findViewById(R.id.healthCard);
+        energyCard = findViewById(R.id.energyCard);
 
         // Set user email
         if (mAuth.getCurrentUser() != null) {
@@ -111,6 +115,26 @@ public class MainActivity extends AppCompatActivity {
         // Student Status card
         statusCard.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, StudentStatusActivity.class));
+        });
+
+        // NGO card
+        ngoCard.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, NGOListActivity.class));
+        });
+
+        // Waste Tracking card
+        wasteTrackingCard.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, WasteLoggingActivity.class));
+        });
+
+        // Health card
+        healthCard.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, HealthIncidentReportingActivity.class));
+        });
+
+        // Energy card
+        energyCard.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, EnergyLoggingActivity.class));
         });
     }
 

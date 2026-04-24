@@ -81,7 +81,7 @@ public class CommunityActivity extends AppCompatActivity implements CommunityAda
 
                 List<Community> posts = new ArrayList<>();
                 if (value != null) {
-                    for (var doc : value.getDocuments()) {
+                    for (com.google.firebase.firestore.DocumentSnapshot doc : value.getDocuments()) {
                         Community community = doc.toObject(Community.class);
                         if (community != null) {
                             community.setId(doc.getId());

@@ -51,6 +51,21 @@
         <activity
             android:name=".StudentStatusActivity"
             android:exported="true" />
+        <activity
+            android:name=".NGOListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WasteLoggingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HealthIncidentReportingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EnergyLoggingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EnergyViewingActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

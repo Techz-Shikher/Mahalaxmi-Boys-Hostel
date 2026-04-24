@@ -41,4 +41,33 @@
         <item>5:00 PM</item>
         <item>6:30 PM</item>
     </string-array>
+
+    <!-- Health Incident Types -->
+    <string-array name="incident_types">
+        <item>Select Type...</item>
+        <item>Fever/Cold</item>
+        <item>Injury</item>
+        <item>Allergy</item>
+        <item>Nutrition Issue</item>
+        <item>Mental Health</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Severity Levels -->
+    <string-array name="severity_levels">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Critical</item>
+    </string-array>
+
+    <!-- Waste Categories -->
+    <string-array name="waste_categories">
+        <item>Vegetables</item>
+        <item>Grains</item>
+        <item>Protein</item>
+        <item>Dairy</item>
+        <item>Oil</item>
+        <item>Other</item>
+    </string-array>
 </resources>
